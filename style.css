@@ -1,0 +1,83 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #222222;
+  --card-bg: #f5f5f5;
+  --hover-bg: #e0e0e0;
+}
+
+body.dark {
+  --bg-color: #1e1e1e;
+  --text-color: #f0f0f0;
+  --card-bg: #2e2e2e;
+  --hover-bg: #3e3e3e;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  background: none;
+  border: 2px solid var(--text-color);
+  border-radius: 5px;
+  color: var(--text-color);
+  transition: background 0.3s;
+}
+button:hover {
+  background-color: var(--hover-bg);
+}
+
+.gallery {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  padding: 1rem;
+  flex-wrap: wrap;
+  max-height: 80vh; /* Limite la hauteur */
+  overflow-y: auto;  /* Scroll si trop long */
+}
+
+.card {
+  background-color: var(--card-bg);
+  padding: 0.5rem;
+  border-radius: 10px;
+  width: 250px;
+  font-size: 0.85rem;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+  max-height: 100%; /* Ajustement hauteur */
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+.card img {
+  width: 100%;
+  height: 150px; /* Réduction de taille */
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Animation d'apparition */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
