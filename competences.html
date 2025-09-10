@@ -3,36 +3,112 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Galerie Beauté - Accueil</title>
+  <title>Compétences – Galerie Beauté</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    /* Section compétences */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+      padding: 0 1rem;
+    }
+
+    .skill-card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .skill-card i {
+      font-size: 40px;
+      color: #9c27b0;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+
+    .skill-card h3 {
+      margin: 0.5rem 0;
+      font-size: 1.3rem;
+      color: var(--text-color);
+    }
+
+    .skill-card p {
+      font-size: 0.95rem;
+      color: var(--text-color);
+      opacity: 0.85;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-top: 1.5rem;
+      color: #9c27b0;
+    }
+  </style>
 </head>
 <body class="light">
-
   <!-- Navbar -->
- <header class="navbar">
-  <h1>Beauté & Soins</h1>
-  <button class="menu-toggle" id="menu-toggle">☰</button>
-  <nav id="navbar-links">
-    <a href="index.html">Accueil</a>
-     <a href="galerie.html">Produits</a>
-    <a href="apropos.html">À propos</a>
-    <a href="competences.html">Compétences</a>
-    <a href="projets.html">Projets</a>
+  <header class="navbar">
+    <h1>Beauté & Soins</h1>
+      <button class="menu-toggle" id="menu-toggle">☰</button>
+    <nav id="navbar-links">
+      <a href="index.html">Accueil</a>
+      <a href="apropos.html">À propos</a>
+      <a href="competences.html" class="active">Compétences</a>
+         <a href="galerie.html">Produits</a>
+        <a href="projets.html">Projets</a>
     <a href="contact.html">Contact</a>
-    <button id="theme-toggle">🌓 Thème</button>
-  </nav>
-</header>
-
-  <!-- Hero -->
-<main class="hero">
-  <div class="hero-content">
-    <h1>Bienvenue à la Galerie Beauté</h1>
-    <p class="subtitle">Découvrez nos produits de soins et de maquillage, soigneusement sélectionnés pour vous.</p>
-    <a href="galerie.html" class="btn">Voir les produits</a>
+      <button id="theme-toggle">🌓 Thème</button>
+    </nav>
+  </header>
+<!-- Compétences -->
+<main class="section-content skills-section">
+  <h2>💼 Mes Compétences</h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="icon-wrapper">
+        <i data-lucide="folder-cog"></i>
+      </div>
+      <h3>Gestion administrative</h3>
+      <p>Organisation, planification et gestion documentaire.</p>
+    </div>
+    <div class="skill-card">
+      <div class="icon-wrapper">
+        <i data-lucide="messages-square"></i>
+      </div>
+      <h3>Communication professionnelle</h3>
+      <p>Courriers, compte-rendus, relations hiérarchiques.</p>
+    </div>
+    <div class="skill-card">
+      <div class="icon-wrapper">
+        <i data-lucide="laptop"></i>
+      </div>
+      <h3>Outils numériques</h3>
+      <p>Suite Office, messagerie, logiciels de gestion.</p>
+    </div>
+    <div class="skill-card">
+      <div class="icon-wrapper">
+        <i data-lucide="rocket"></i>
+      </div>
+      <h3>Coordination de projets</h3>
+      <p>Suivi de projet et accompagnement stratégique.</p>
+    </div>
   </div>
 </main>
 
 
+  <!-- Footer -->
 <footer class="footer">
   <div class="footer-content">
     <p>© 2025 Galerie Beauté. Tous droits réservés.</p>
@@ -56,7 +132,7 @@
   toggleButton.addEventListener("click", () => {
     body.classList.toggle("dark");
   });
-  // Hamburger menu
+// Hamburger menu
 const menuToggle = document.getElementById('menu-toggle');
 const navbarLinks = document.getElementById('navbar-links');
 
@@ -70,69 +146,6 @@ menuToggle.addEventListener('click', () => {
 </html>
 
 <style>
-  .hero {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 4rem 1rem;
-  background: linear-gradient(135deg, #f5f0ff, #d9bfff);
-  position: relative;
-  color: var(--text-color);
-}
-
-.hero h1 {
-  font-size: 2.8rem;
-  margin-bottom: 1rem;
-  color: #a855f7; /* violet chic */
-}
-
-.hero .subtitle {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.6;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
-  color: var(--text-color); /* s'adapte automatiquement au thème clair */
-}
-
-/* Mode sombre spécifique */
-body.dark .hero .subtitle {
-  color: #f0e6ff; /* violet clair pour bien contraster sur fond sombre */
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7); /* ombre pour meilleure lisibilité */
-}
-
-
-
-.hero .btn {
-  display: inline-block;
-  padding: 0.8rem 2rem;
-  font-size: 1rem;
-  background-color: #a855f7;
-  color: #fff;
-  border-radius: 50px;
-  text-decoration: none;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.hero .btn:hover {
-  transform: scale(1.05);
-  background-color: #9333ea;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2rem;
-  }
-  .hero .subtitle {
-    font-size: 1rem;
-  }
-}
-
 
 /* Footer général */
 .footer {
@@ -204,3 +217,5 @@ body.dark .social-icon { background: #222; }
 
 
 </style>
+
+

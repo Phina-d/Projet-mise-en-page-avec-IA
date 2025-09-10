@@ -1,38 +1,50 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Galerie Beauté - Accueil</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Galerie Beauté - À propos</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body class="light">
 
   <!-- Navbar -->
- <header class="navbar">
-  <h1>Beauté & Soins</h1>
-  <button class="menu-toggle" id="menu-toggle">☰</button>
-  <nav id="navbar-links">
-    <a href="index.html">Accueil</a>
+  <header class="navbar">
+    <h1>Beauté & Soins</h1>
+     <button class="menu-toggle" id="menu-toggle">☰</button>
+    <nav id="navbar-links">
+       <a href="index.html">Accueil</a>
      <a href="galerie.html">Produits</a>
     <a href="apropos.html">À propos</a>
     <a href="competences.html">Compétences</a>
     <a href="projets.html">Projets</a>
     <a href="contact.html">Contact</a>
-    <button id="theme-toggle">🌓 Thème</button>
-  </nav>
-</header>
+      <button id="theme-toggle">🌓 Thème</button>
+    </nav>
+  </header>
 
-  <!-- Hero -->
-<main class="hero">
-  <div class="hero-content">
-    <h1>Bienvenue à la Galerie Beauté</h1>
-    <p class="subtitle">Découvrez nos produits de soins et de maquillage, soigneusement sélectionnés pour vous.</p>
-    <a href="galerie.html" class="btn">Voir les produits</a>
-  </div>
+<!-- À propos Section avec icônes -->
+<main class="apropos-container">
+  <section class="apropos-content">
+    <h2>À propos de la Galerie Beauté</h2>
+    <p>
+      Bienvenue dans notre galerie de beauté ! Nous sélectionnons les meilleurs produits de soins et de maquillage pour offrir une expérience unique.  
+      Notre mission : allier <strong>qualité</strong>, <strong>esthétique</strong>, et <strong>bien-être</strong> pour tous nos clients.
+    </p>
+    <p>
+      Nous croyons en des produits sûrs, respectueux de la peau et accessibles. Découvrez notre univers et laissez-vous inspirer par nos conseils et sélections.
+    </p>
+    <div class="apropos-icons">
+      <i data-lucide="star"></i>
+      <i data-lucide="heart"></i>
+      <i data-lucide="award"></i>
+    </div>
+  </section>
 </main>
 
 
+
+  <!-- Footer -->
 <footer class="footer">
   <div class="footer-content">
     <p>© 2025 Galerie Beauté. Tous droits réservés.</p>
@@ -56,7 +68,7 @@
   toggleButton.addEventListener("click", () => {
     body.classList.toggle("dark");
   });
-  // Hamburger menu
+// Hamburger menu
 const menuToggle = document.getElementById('menu-toggle');
 const navbarLinks = document.getElementById('navbar-links');
 
@@ -66,69 +78,120 @@ menuToggle.addEventListener('click', () => {
 
 </script>
 
+
 </body> 
 </html>
 
 <style>
-  .hero {
+
+/* Conteneur général */
+.apropos-container {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+  transition: background 0.5s;
+}
+
+/* Carte À propos */
+.apropos-content {
+  max-width: 800px;
   text-align: center;
-  padding: 4rem 1rem;
-  background: linear-gradient(135deg, #f5f0ff, #d9bfff);
-  position: relative;
+  background-color: var(--card-bg);
+  padding: 3rem 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s;
+}
+
+.apropos-content:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  background-color: var(--hover-bg);
+}
+
+/* Titres et textes */
+.apropos-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #a855f7;
+}
+
+.apropos-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
   color: var(--text-color);
 }
 
-.hero h1 {
-  font-size: 2.8rem;
-  margin-bottom: 1rem;
-  color: #a855f7; /* violet chic */
+/* Icônes décoratives */
+.apropos-icons svg {
+  width: 2rem;
+  height: 2rem;
+  stroke: #555;
+  transition: stroke 0.2s;
+  cursor: pointer;
+  margin: 0 0.5rem;
 }
 
-.hero .subtitle {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.6;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
-  color: var(--text-color); /* s'adapte automatiquement au thème clair */
+/* Hover sur desktop */
+.apropos-icons svg:hover {
+  stroke: #ff4081;
+  transform: scale(1.2);
 }
 
-/* Mode sombre spécifique */
-body.dark .hero .subtitle {
-  color: #f0e6ff; /* violet clair pour bien contraster sur fond sombre */
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7); /* ombre pour meilleure lisibilité */
+/* Classe pour déclencher l’animation en cascade */
+.apropos-icons.animate svg {
+  animation: bounceCascade 0.5s forwards;
+}
+
+/* Animation rebond + couleur */
+@keyframes bounceCascade {
+  0%   { transform: scale(1); stroke: #555; }
+  30%  { transform: scale(1.4); stroke: #ff4081; }
+  50%  { transform: scale(0.9); stroke: #ff6fa0; }
+  70%  { transform: scale(1.2); stroke: #ff4081; }
+  100% { transform: scale(1.15); stroke: #ff4081; }
 }
 
 
 
-.hero .btn {
-  display: inline-block;
-  padding: 0.8rem 2rem;
-  font-size: 1rem;
-  background-color: #a855f7;
-  color: #fff;
-  border-radius: 50px;
-  text-decoration: none;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+
+/* Thème sombre */
+body.dark .apropos-container {
+  background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
 }
 
-.hero .btn:hover {
-  transform: scale(1.05);
-  background-color: #9333ea;
+body.dark .apropos-content {
+  background-color: var(--card-bg);
+}
+
+body.dark .apropos-content:hover {
+  background-color: var(--hover-bg);
+}
+
+body.dark .apropos-content h2,
+body.dark .apropos-content p {
+  color: var(--text-color);
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .hero h1 {
+  .apropos-container {
+    padding: 3rem 1rem;
+  }
+
+  .apropos-content {
+    padding: 2rem 1.5rem;
+  }
+
+  .apropos-content h2 {
     font-size: 2rem;
   }
-  .hero .subtitle {
+
+  .apropos-content p {
     font-size: 1rem;
   }
 }

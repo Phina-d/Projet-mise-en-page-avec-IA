@@ -3,36 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Galerie Beauté - Accueil</title>
+  <title>Projets – Galerie Beauté</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="light">
-
   <!-- Navbar -->
- <header class="navbar">
-  <h1>Beauté & Soins</h1>
-  <button class="menu-toggle" id="menu-toggle">☰</button>
-  <nav id="navbar-links">
-    <a href="index.html">Accueil</a>
-     <a href="galerie.html">Produits</a>
-    <a href="apropos.html">À propos</a>
-    <a href="competences.html">Compétences</a>
-    <a href="projets.html">Projets</a>
-    <a href="contact.html">Contact</a>
-    <button id="theme-toggle">🌓 Thème</button>
-  </nav>
-</header>
+  <header class="navbar">
+    <h1>Beauté & Soins</h1>
+      <button class="menu-toggle" id="menu-toggle">☰</button>
+    <nav id="navbar-links">
+      <a href="index.html">Accueil</a>
+      <a href="galerie.html">Produits</a>
+      <a href="apropos.html">À propos</a>
+      <a href="competences.html">Compétences</a>
+      <a href="projets.html" class="active">Projets</a>
+      <a href="contact.html">Contact</a>
+      <button id="theme-toggle">🌓 Thème</button>
+    </nav>
+  </header>
 
-  <!-- Hero -->
-<main class="hero">
-  <div class="hero-content">
-    <h1>Bienvenue à la Galerie Beauté</h1>
-    <p class="subtitle">Découvrez nos produits de soins et de maquillage, soigneusement sélectionnés pour vous.</p>
-    <a href="galerie.html" class="btn">Voir les produits</a>
-  </div>
-</main>
+  <!-- Projets -->
+  <main class="section-content">
+    <h2>Mes Projets</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <img src="https://picsum.photos/300/200?random=1" alt="Projet 1">
+        <h3>Organisation d'événements</h3>
+        <p>Coordination et planification complète des événements internes et externes.</p>
+      </div>
+      <div class="project-card">
+        <img src="https://picsum.photos/300/200?random=2" alt="Projet 2">
+        <h3>Digitalisation des documents</h3>
+        <p>Numérisation et gestion électronique des dossiers administratifs.</p>
+      </div>
+      <div class="project-card">
+        <img src="https://picsum.photos/300/200?random=3" alt="Projet 3">
+        <h3>Suivi des archives</h3>
+        <p>Création d'un système efficace de suivi et de conservation des archives.</p>
+      </div>
+      <div class="project-card">
+        <img src="https://picsum.photos/300/200?random=4" alt="Projet 4">
+        <h3>Communication institutionnelle</h3>
+        <p>Rédaction et diffusion de communications internes et externes.</p>
+      </div>
+    </div>
+  </main>
 
-
+<!-- Footer -->
 <footer class="footer">
   <div class="footer-content">
     <p>© 2025 Galerie Beauté. Tous droits réservés.</p>
@@ -56,7 +74,8 @@
   toggleButton.addEventListener("click", () => {
     body.classList.toggle("dark");
   });
-  // Hamburger menu
+
+// Hamburger menu
 const menuToggle = document.getElementById('menu-toggle');
 const navbarLinks = document.getElementById('navbar-links');
 
@@ -70,69 +89,6 @@ menuToggle.addEventListener('click', () => {
 </html>
 
 <style>
-  .hero {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 4rem 1rem;
-  background: linear-gradient(135deg, #f5f0ff, #d9bfff);
-  position: relative;
-  color: var(--text-color);
-}
-
-.hero h1 {
-  font-size: 2.8rem;
-  margin-bottom: 1rem;
-  color: #a855f7; /* violet chic */
-}
-
-.hero .subtitle {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.6;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
-  color: var(--text-color); /* s'adapte automatiquement au thème clair */
-}
-
-/* Mode sombre spécifique */
-body.dark .hero .subtitle {
-  color: #f0e6ff; /* violet clair pour bien contraster sur fond sombre */
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7); /* ombre pour meilleure lisibilité */
-}
-
-
-
-.hero .btn {
-  display: inline-block;
-  padding: 0.8rem 2rem;
-  font-size: 1rem;
-  background-color: #a855f7;
-  color: #fff;
-  border-radius: 50px;
-  text-decoration: none;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.hero .btn:hover {
-  transform: scale(1.05);
-  background-color: #9333ea;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2rem;
-  }
-  .hero .subtitle {
-    font-size: 1rem;
-  }
-}
-
 
 /* Footer général */
 .footer {
